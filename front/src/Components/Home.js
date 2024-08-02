@@ -5,7 +5,8 @@ import { addToCart, addToFavorites, removeFromFavorites, searchTerm } from '../f
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { CircularProgress, Typography } from '@mui/material';
 import Hoc from './Hoc';
-import SwipeableTextMobileStepper from './Carousal';
+
+
 
 class Home extends Component {
   constructor(props) {
@@ -93,7 +94,7 @@ class Home extends Component {
             <img className='w-full rounded-md' src={value} alt="Slider" />
           </div>
         </section> */}
-        <SwipeableTextMobileStepper/>
+ 
 
 
 
