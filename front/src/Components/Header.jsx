@@ -23,7 +23,7 @@ const Header = ({ cartQuantity, favoritesQuantity }) => {
   };
 
   return (
-    <nav className='sticky top-5 z-40 w-full py-3 px-6 flex items-center justify-between bg-gray-200'>
+    <nav className='sticky top-0 z-40 w-full py-3 px-6 flex items-center justify-between bg-gray-200'>
       <div className='text-xl lg:text-3xl font-bold italic'>Apni Dukaan</div>
       <Box sx={{ flexGrow: 1, maxWidth: '500px', ml: 4 , mr:4}}>
         <TextField

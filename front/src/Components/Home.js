@@ -86,7 +86,7 @@ class Home extends Component {
 
     return (
 
-      <div className='relative h-full w-full px-40'>
+      <div className='relative h-full w-full px-[3rem]'>
        
         {/* <section>
           <div className='px-5 py-5 mt-4 w-full h-auto bg-slate-300 hover:cursor-pointer'>
