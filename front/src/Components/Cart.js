@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { discountCoupons, removeFromCart, updateQuantity } from '../features/cart/cartSlice';
 import { Link } from 'react-router-dom';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
 class Cart extends Component {
   constructor(props) {
@@ -30,17 +32,17 @@ class Cart extends Component {
     const { couponCode, couponSection, coupText } = this.state;
 
     return (
-      <div className='w-full flex items-start h-[75vh] px-20 bg-gray-100'>
-        <div className='w-full flex flex-col'>
+      <div className='w-full flex flex-col sm:flex-row items-start  md:px-20 '>
+        <div className='w-full h-[60vh] sm:h-[75vh] flex flex-col  overflow-y-scroll '>
           {cartItems.map((item) => (
-            <div key={item.id} className='w-full flex h-full bg-white mb-6'>
-              <div className='w-70 py-7'>
-                <div className='w-full flex'>
+            <div key={item.id} className='w-full flex h-full border-2  mb-6'>
+              <div className='w-full py-7 border-2 '>
+                <div className='w-full flex border-2 '>
                   <div className='w-20'>
-                    <img className='p-4' src={item.images ? item.images[0] : ''} alt={item.title} />
+                    <img className=' w-full' src={item.images ? item.images[0] : ''} alt={item.title} />
                   </div>
-                  <div className='w-55 border-2 p-4'>
-                    <h1 className='text-lg font-md'>{item.title}</h1>
+                  <div className='w-55 border-2 p-2'>
+                    <h1 className='text-md font-md'>{item.title}</h1>
                     <p className='text-lg mt-4'>Price Rs {Math.floor(item.price * 80)}</p>
                   </div>
                   <div className='w-25 border-2 p-4'>
@@ -48,25 +50,25 @@ class Cart extends Component {
                   </div>
                 </div>
                 <div className='flex items-center gap-10 mt-6'>
-                  <div className='px-6'>
+                  <div className='sm:px-6'>
                     <button
                       onClick={() => this.handleQuantityChange(item.id, item.quantity - 1)}
-                      className='rounded-full px-5 text-xl py-2'
+                      className='  text-black'
                     >
-                      -
+                      <RemoveCircleIcon fontSize='large' />
                     </button>
                     <span className='px-6'>{item.quantity}</span>
                     <button
                       onClick={() => this.handleQuantityChange(item.id, item.quantity + 1)}
                       className='rounded-full px-4 text-2xl py-2'
                     >
-                      +
+                      <AddCircleIcon fontSize='large' color='primary'/>
                     </button>
                   </div>
                   <div>
                     <button
                       onClick={() => this.handleRemove(item.id)}
-                      className='text-xl py-2 px-6 bg-black text-white font-bold'
+                      className='text-xl py-1 px-6 bg-black text-white font-bold rounded-md'
                     >
                       Remove
                     </button>

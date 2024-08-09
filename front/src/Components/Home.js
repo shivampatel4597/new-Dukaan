@@ -1,10 +1,15 @@
 // src/components/Home.js
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import img1 from "./images/img1.jpg"
+import img2 from "./images/img2.jpg"
+import img3 from "./images/img3.jpg"
+
 import { addToCart, addToFavorites, removeFromFavorites, searchTerm } from '../features/cart/cartSlice';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { CircularProgress, Typography } from '@mui/material';
 import Hoc from './Hoc';
+import Carousal from './Carousal';
 
 
 
@@ -17,9 +22,7 @@ class Home extends Component {
       images: "",
       value: "https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/e1c77383c5405c7c.jpg?q=20",
       sliderImg: [
-        "https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/77e402bbfdae0e68.jpg?q=20",
-        "https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/9384b37a848c5e60.jpg?q=20",
-        "https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/bf42fbdd3d37c8c3.jpg?q=20",
+       img1, img2, img3,
         "https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/e1c77383c5405c7c.jpg?q=20",
       ],
       isLoading: null,
@@ -60,8 +63,8 @@ class Home extends Component {
 
   handleAddToCart = (product) => {
     this.props.addToCart(product);
-    const { navigate } = this.props.router;
-    navigate('/cart');
+    // const { navigate } = this.props.router;
+    // navigate('/cart');
   };
 
   Viewpage = (itemId) => {
@@ -82,12 +85,12 @@ class Home extends Component {
  
 
   render() {
-    const { arr, value } = this.state;
+    const { arr, sliderImg } = this.state;
     const { favorites } = this.props;
 
     return (
 
-      <div className='relative h-full w-full px-[3rem]'>
+      <div className='relative min-h-[100vh] w-full lg:px-[3rem]'>
        
         {/* <section>
           <div className='px-5 py-5 mt-4 w-full h-auto bg-slate-300 hover:cursor-pointer'>
@@ -95,29 +98,29 @@ class Home extends Component {
           </div>
         </section> */}
  
+<Carousal sliderImg={sliderImg}/>
 
 
-
-        <div className=' py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center '>
+        <div className=' py-8 mt-5 grid grid-cols- md:grid-cols-2 lg:grid-cols-3 gap-7 place-items-center bg-blue-400 '>
           { arr.map((item) => (
-            <div key={item.id} className='flex flex-col items-center justify-center w-80 h-80 px-5 border-2 rounded-lg border-gray shadow-2xl hover:cursor-pointer'>
+            <div key={item.id} className='bg-slate-200 flex flex-col items-center justify-center w-60 h-60 px-5 border-2 rounded-lg border-gray shadow-2xl hover:cursor-pointer'>
               <button
                 onClick={() => this.toggleFavorite(item)}
-                className='w-full text-start'
+                className='w-full text-start text-slate-400'
               >
                 <FavoriteIcon color={favorites.some(fav => fav.id === item.id) ? 'error' : 'inherit'} />
               </button>
               <img
                 onClick={() => this.Viewpage(item.id)}
-                className='w-full h-[60%]  hover:scale-[1.1] hover:translate-x-1 hover:translate-y-1'
+                className='w-full h-[40%]  hover:scale-[1.1] hover:translate-x-1 hover:translate-y-1'
                 src={item.thumbnail}
                 alt={item.title}
               />
-              <p>{item.title}</p>
+              <p className='italic'>{item.title.slice(0,16 )}</p>
               <p className='font-bold'>Rs {Math.round(item.price * 80)}</p>
               <button
                 onClick={() => this.handleAddToCart(item)}
-                className='w-[80%] py-1 my-2 border-2 rounded text-black border-black '
+                className='w-[80%] text-sm py-1 my-2  rounded text-white font-bold  bg-red-500  '
               >
                 ADD TO CART
               </button>

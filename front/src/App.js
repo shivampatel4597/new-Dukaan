@@ -15,13 +15,10 @@ import Error from './Components/Error';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
 
-
 function App() {
-
-
   return (
-    <div className="App h-full ">
-   <Header/>
+    <div className="App h-full">
+      <Header />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,17 +27,16 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/singleproduct/:id" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="filterPro/:query" element={<Filteredproduct/>}/>
+        <Route path="filterPro/:query" element={<Filteredproduct />} />
         <Route path="/favourite" element={<Favourites />} />
-        <Route path='/checkout' element={<Checkout/>}/>
-        <Route path='/register' element={<Registration/>} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/register" element={<Registration />} />
         <Route path="*" element={<Error />} />
       </Routes>
-      
-      <Footer/>
+
+      <Footer />
     </div>
   );
 }
 
-
-export default App
+export default App;

@@ -6,22 +6,28 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const Favourites = ({ favorites, removeFromFavorites }) => {
   return (
-    <div className="container h-[75vh] mx-auto p-5">
-      <h1 className="text-3xl font-bold mb-10">Favourites</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div className='relative min-h-[75vh] w-full lg:px-[3rem] bg-yellow-50'>
+      <h1 className='text-3xl font-bold mb-10 px-5 py-8'>Favourites</h1>
+      <div className='py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 place-items-center'>
         {favorites.map(item => (
           <div
             key={item.id}
-            className="favorite-item p-5 border rounded-lg shadow-lg flex flex-col items-center bg-white transform transition-transform hover:scale-105"
+            className='bg-slate-200 flex flex-col items-center justify-center w-60 h-60 px-5 border-2 rounded-lg border-gray shadow-2xl hover:cursor-pointer'
           >
-            <img src={item.thumbnail} alt={item.title} className="w-full  h-[12rem] mb-4" />
-            <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
-            <p className="text-lg font-bold text-gray-700 mb-4">Rs {Math.round(item.price * 80)}</p>
+            <div className='w-full h-40 overflow-hidden  relative'>
+              <img 
+                src={item.thumbnail} 
+                alt={item.title} 
+                className='object-cover w-full h-full transition-transform transform hover:scale-105'
+              />
+            </div>
+            <h2 className='text-sm font-semibold '>{item.title.slice(0,16 )}</h2>
+            <p className='text-lg font-bold text-gray-700 '>Rs {Math.round(item.price * 80)}</p>
             <button
               onClick={() => removeFromFavorites({ id: item.id })}
-              className="w-full py-2 bg-red-500 text-white rounded-md flex items-center justify-center hover:bg-red-600"
+              className='w-[80%] text-sm py-1  rounded text-white font-bold  bg-red-500  '
             >
-              <FavoriteIcon className="mr-2" /> Remove from Favorites
+              <FavoriteIcon className='mr-2 ' fontSize='small' /> Remove
             </button>
           </div>
         ))}
