@@ -14,10 +14,22 @@ import Registration from './Registration';
 import Error from './Components/Error';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
+import { CircularProgress, Typography } from '@mui/material';
+import { useState } from 'react';
 
 function App() {
+  const[isLoading, setIsLoading] = useState(true)
+  setTimeout(()=>{
+setIsLoading(false)
+  },3000)
   return (
-    <div className="App h-full">
+<>
+
+
+    {isLoading ?
+
+      <CircularProgress sx={{ color: 'primary', margin: '20px', position: 'absolute', top: '50%', left: '45%', transform: 'translate(-50%, -50%)' }} size={60} />
+      :  <div className="App h-full">
       <Header />
 
       <Routes>
@@ -36,6 +48,9 @@ function App() {
 
       <Footer />
     </div>
+    }
+    </>
+   
   );
 }
 

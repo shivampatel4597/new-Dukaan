@@ -11,7 +11,7 @@ app.use(express.json())
 
 
 app.get('/alert',(req, res)=>{
-    res.json({message:"this is an alert message from backend "})
+    res.send("hello world")
 })
 
 

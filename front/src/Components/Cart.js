@@ -92,11 +92,11 @@ class Cart extends Component {
               {couponSection ? (
                 <div>
                   <input
-                    className='py-1 text-black'
+                    className='py-1 text-black bg-white '
                     value={couponCode}
                     onChange={(e) => this.setState({ couponCode: e.target.value })}
                   />
-                  <button onClick={this.handleApplyCoupon} className='px-4 py-1 bg-white text-black'>Apply</button>
+                  <button onClick={this.handleApplyCoupon} className='mt-2 px-4 py-1 mx-1 bg-blue-500 text-white rounded-md'>Apply</button>
                 </div>
               ) : (
                 <p>{coupText ? "Coupon Applied" : "Apply coupon code"}</p>

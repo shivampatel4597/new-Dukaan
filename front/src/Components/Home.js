@@ -1,6 +1,7 @@
 // src/components/Home.js
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Newcarousal from './ProductsCategories/Beauty';
 import img1 from "./images/img1.jpg"
 import img2 from "./images/img2.jpg"
 import img3 from "./images/img3.jpg"
@@ -10,8 +11,10 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { CircularProgress, Typography } from '@mui/material';
 import Hoc from './Hoc';
 import Carousal from './Carousal';
-
-
+import Beauty from './ProductsCategories/Beauty';
+import Groceries from './ProductsCategories/Groceries';
+import Furniture from './ProductsCategories/Furniture';
+import Fragrances from './ProductsCategories/Fragrances';
 
 class Home extends Component {
   constructor(props) {
@@ -49,27 +52,18 @@ class Home extends Component {
       });
   };
 
-  // callSlider = () => {
-  //   let i = 0;
-  //   setInterval(() => {
-  //     if (i < this.state.sliderImg.length) {
-  //       this.setState({ value: this.state.sliderImg[i] });
-  //       i++;
-  //     } else {
-  //       i = 0;
-  //     }
-  //   }, 4000);
-  // };
+
 
   handleAddToCart = (product) => {
     this.props.addToCart(product);
-    // const { navigate } = this.props.router;
-    // navigate('/cart');
+    const { navigate } = this.props.router;
+    navigate('/cart');
   };
 
   Viewpage = (itemId) => {
     const { navigate } = this.props.router;
     navigate(`/singleproduct/${itemId}`);
+    console.log("hello world")
   };
 
   toggleFavorite = (product) => {
@@ -92,16 +86,21 @@ class Home extends Component {
 
       <div className='relative min-h-[100vh] w-full lg:px-[3rem]'>
        
-        {/* <section>
+        {/* <section>f
           <div className='px-5 py-5 mt-4 w-full h-auto bg-slate-300 hover:cursor-pointer'>
             <img className='w-full rounded-md' src={value} alt="Slider" />
           </div>
         </section> */}
  
-<Carousal sliderImg={sliderImg}/>
+<Carousal sliderImg={sliderImg}  />
 
-
-        <div className=' py-8 mt-5 grid grid-cols- md:grid-cols-2 lg:grid-cols-3 gap-7 place-items-center bg-blue-400 '>
+ 
+  <Beauty products={arr} Viewpage={this.Viewpage} handleAddToCart={this.handleAddToCart} toggleFavorite={this.toggleFavorite}/>
+  <Groceries products={arr} Viewpage={this.Viewpage} handleAddToCart={this.handleAddToCart} toggleFavorite={this.toggleFavorite}/>
+  <Furniture products={arr} Viewpage={this.Viewpage} handleAddToCart={this.handleAddToCart} toggleFavorite={this.toggleFavorite}/>
+  <Fragrances products={arr} Viewpage={this.Viewpage} handleAddToCart={this.handleAddToCart} toggleFavorite={this.toggleFavorite}/>
+  
+        {/* <div className=' py-8 mt-5 grid grid-cols- md:grid-cols-2 lg:grid-cols-3 gap-7 place-items-center bg-blue-400 '>
           { arr.map((item) => (
             <div key={item.id} className='bg-slate-200 flex flex-col items-center justify-center w-60 h-60 px-5 border-2 rounded-lg border-gray shadow-2xl hover:cursor-pointer'>
               <button
@@ -126,13 +125,13 @@ class Home extends Component {
               </button>
             </div>
           ))}
-        </div>
+        </div> */}
 
-        {this.state.isLoading ?
+        {/* {this.state.isLoading ?
 
-          <CircularProgress sx={{ color: 'white', margin: '20px', position: 'absolute', top: '50%', left: '45%', transform: 'translate(-50%, -50%)' }} size={60} />
+          <CircularProgress sx={{ color: 'primary', margin: '20px', position: 'absolute', top: '50%', left: '45%', transform: 'translate(-50%, -50%)' }} size={60} />
           : ''
-        }
+        } */}
 
       </div>
     );
