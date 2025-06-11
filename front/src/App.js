@@ -10,12 +10,14 @@ import Cart from './Components/Cart';
 import Favourites from './Components/Favourites';
 import Checkout from './Components/Checkout';
 import Filteredproduct from './Components/Filteredproduct';
-import Registration from './Registration';
+import Singup_page from './pages/Singup_page';
 import Error from './Components/Error';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
 import { CircularProgress, Typography } from '@mui/material';
 import { useState } from 'react';
+import Login_page from './pages/Login_page';
+import Protectedroutes from './Components/Protectedroutes';
 
 function App() {
   const[isLoading, setIsLoading] = useState(true)
@@ -32,7 +34,13 @@ setIsLoading(false)
       :  <div className="App h-full">
       <Header />
 
-      <Routes>
+<Routes>
+  <Route path="/signup" element={<Singup_page />} />
+        <Route path='/login' element={<Login_page/>}/>
+
+
+
+          <Route element={<Protectedroutes/>}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
@@ -42,9 +50,14 @@ setIsLoading(false)
         <Route path="filterPro/:query" element={<Filteredproduct />} />
         <Route path="/favourite" element={<Favourites />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/register" element={<Registration />} />
+      
         <Route path="*" element={<Error />} />
-      </Routes>
+      </Route>
+
+      
+</Routes>
+
+    
 
       <Footer />
     </div>

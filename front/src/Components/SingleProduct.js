@@ -46,21 +46,21 @@ class SingleProduct extends Component {
       <div className='w-full flex items-center justify-center bg-gray-100 p-2'>
         <div className='w-full lg:w-[80%] flex flex-col md:flex-row lg:flex-row items-center lg:items-start justify-center h-full bg-white p-4 lg:p-0'>
           <div className='w-full  lg:w-[35%] mb-4 lg:mb-0 '>
-            <img src={arr.images ? arr.images[0] : ""} className='w-full mb-7 p-3 bg-green-300' alt={arr.title} />
+            <img src={arr.images ? arr.images[0] : ""} className='w-full mb-7 p-3 bg-green-300 rounded-lg' alt={arr.title} />
             <div className='flex flex-col sm:flex-row justify-center'>
               <button
                 onClick={this.handleAddToCart}
-                className='w-full sm:w-48 h-14 text-xl py-1 mx-1 my-2 bg-yellow-500 text-white'
+                className='w-full sm:w-48 h-14 text-xl py-1 mx-1 my-2 bg-yellow-400 text-white rounded-md hover:bg-yellow-500'
               >
                 ADD TO CART
               </button>
-              <button className='w-full sm:w-48 h-14 text-xl py-1 mx-1 my-2 bg-orange-500 text-white'>
+              <button className='w-full sm:w-48 h-14 text-xl py-1 mx-1 my-2 bg-orange-400 text-white rounded-md hover:bg-orange-500'>
                 BUY NOW
               </button>
             </div>
           </div>
           <div className='w-full lg:w-[65%] px-3 lg:px-6 py-4'>
-            <h1 className='text-lg lg:text-xl text-start'>{arr.title}</h1>
+            <h1 className='text-lg lg:text-xl text-start font-bold'>{arr.title}</h1>
             <p className='text-red-500 text-md lg:text-lg text-start'>{arr.category}</p>
             <div className='mt-3 text-start w-full'>
               <span className='px-2 lg:px-3 mt-2 bg-green-400'>{arr.rating}</span>

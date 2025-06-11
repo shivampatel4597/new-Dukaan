@@ -85,7 +85,10 @@ const Header = ({ cartQuantity, favoritesQuantity }) => {
           </button>
         </li>
         <li>
-          <button className='px-4 py-1 rounded-full font-bold text-white bg-blue-500'>Login</button>
+          <button onClick={()=> navigate('/login')} className='px-4 py-1 rounded-full font-bold text-white bg-blue-500'>Login</button>
+        </li>
+           <li>
+          <button onClick={()=> navigate('/signup')} className='px-4 py-1 rounded-full font-bold text-white bg-blue-500'>SignUp</button>
         </li>
       </ul>
       <div className='md:hidden'>
