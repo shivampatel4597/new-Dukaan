@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="text-center md:text-left mb-4 md:mb-0">
           <h2 className="text-2xl font-semibold">Dukaan</h2>
           <p className="mt-2 text-lg">Contact us: www.Dukaan.com</p>
-          <p className="mt-2 text-sm">&copy; 2024 Your Company. All rights reserved.</p>
+          <p className="mt-2 text-sm">&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
         </div>
         <div className="flex justify-around md:justify-between w-full md:w-1/2 mt-4 md:mt-0">
           <div className="text-center md:text-left">

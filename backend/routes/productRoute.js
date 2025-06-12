@@ -1,4 +1,4 @@
-import { addToWishlist } from "../controllers/wishList";
+import { addToWishlist } from "../controllers/wishList.js";
 import express from 'express'
 
 const router = express.Router()
