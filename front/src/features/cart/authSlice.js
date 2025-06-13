@@ -6,7 +6,7 @@ export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async ({ email, password }, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE}/api/auth/login`, {
         email,
         password,
       });
