@@ -24,7 +24,7 @@ export const signupUser = createAsyncThunk(
   async (signupData, { rejectWithValue }) => {
     try {
         console.log("inside slice")
-      const response = await axios.post('http://localhost:8080/api/auth/signup', signupData);
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE}/api/auth/signup`, signupData);
       console.log(response.data)
       return response.data; // You can decide what your API returns
     } catch (err) {
