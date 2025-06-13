@@ -7,7 +7,7 @@ export const loginUser = createAsyncThunk(
   async ({ email, password }, { rejectWithValue }) => {
     console.log("hitting")
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_BASE}api/auth/login`, {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE}/api/auth/login`, {
         email,
         password,
       });
