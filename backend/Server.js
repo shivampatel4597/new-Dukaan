@@ -9,7 +9,11 @@ import productRoute from './routes/productRoute.js'
 dotenv.config()
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["https://new-dukaan-1.onrender.com", "http://localhost:3000"], 
+  credentials: true,
+}));
+
 app.use(express.json())
 
  connect_db()
