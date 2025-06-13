@@ -6,7 +6,7 @@ export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async ({ email, password }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_BASE}/api/auth/login`, {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE}/api/auth/login`, {
         email,
         password,
       });
@@ -24,7 +24,7 @@ export const signupUser = createAsyncThunk(
   async (signupData, { rejectWithValue }) => {
     try {
         console.log("inside slice")
-      const response = await axios.post(`${import.meta.env.VITE_API_BASE}/api/auth/signup`, signupData);
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE}/api/auth/signup`, signupData);
       console.log(response.data)
       return response.data; // You can decide what your API returns
     } catch (err) {
